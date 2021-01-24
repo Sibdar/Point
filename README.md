@@ -1,2 +1,2 @@
 # Point
-Point game (Очко).
+Point game (Очко) .
