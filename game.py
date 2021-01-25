@@ -25,21 +25,15 @@ class Game:
         self.pause_game()
         names = input('> Введите имена участников (через `, `): ').split(', ')
         self.players = [Player(name) for name in names]
-
         self.pause_game()
-
         print(f'> Игроки:\n' + ''.join([f'    {n + 1}) {player.name}.' for n, player in enumerate(self.players)]))
-
         self.pause_game()
-
         for player in self.players:
             player.add_card(Game.deck)
-
         print(f'> Каждый игрок получает по одной карте:\n' + ''.join(
             [f'    {n + 1}) {str(player)}' for n, player in enumerate(self.players)]))
 
     def play(self):
-
         shuffle(self.players)
         for player in self.players:
             self.pause_game()
@@ -63,28 +57,22 @@ class Game:
                         answers = ['Кажется, перебор...', 'Немного пережали :)', 'В другой раз повезёт больше! :)']
                         shuffle(answers)
                         print('  * ' + answers[0])
-
                 else:
                     print('> Закончили.')
                     break
             self.pause_game()
             print(f'> Итак, игрок {player.name} набрал {player.count_points()} оч.')
-        #       compare points
+        # compare points
         self.pause_game()
         self.players.sort(key=lambda player: player.count_points())
         print('> Результаты:\n' + ''.join(
             [f'    {n + 1}) {player.name}: {player.count_points()} оч.' for n, player in enumerate(self.players)]))
         self.pause_game()
         print('> Выявляем победителя...')
-
         self.pause_game()
-
         winners = list(filter(lambda player: player.is_winner is True, self.players))
-
         below_21 = list(filter(lambda player: player.is_winner is None, self.players))
-
         above_21 = list(filter(lambda player: player.is_winner is False, self.players))
-
         print('> Победитель:')
         if winners:
             print('\t\U0001F3C6 ' + "".join([f"\t {winner.name}" for winner in winners]))
@@ -92,3 +80,10 @@ class Game:
             print('\t\U0001F3C6 ' + str(below_21[-1].name))
         else:
             print('\t\U0001F3C6 ' + str(above_21[0].name))
+
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
