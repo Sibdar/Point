@@ -48,23 +48,6 @@ def main():
     print(hand)
 
 
-
-    # hand.return_all_cards(deck)
-    # hand.show_cards()
-    #
-    #
-    # print(len(deck.cards))
-
-
-
-
-
-    # hand.remove_all_cards(deck)
-    # print(len(deck.cards))
-
-
-
-
 if __name__ == '__main__':
     main()
 
